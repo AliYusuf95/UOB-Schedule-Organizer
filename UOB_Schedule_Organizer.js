@@ -51,7 +51,9 @@ else if (window.location.pathname == '/cgi/enr/schedule2.class_schedule')
     });
 else
     alert("Sorry this page are not supported :)\n- BY: Ali Yusuf");
-
+loadScript("https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js", function(){
+        PrintSchedule ();
+    });
 /***************************************************************************************************************************
 //
 //
