@@ -51,9 +51,7 @@ else if (window.location.pathname == '/cgi/enr/schedule2.class_schedule')
     });
 else
     alert("Sorry this page are not supported :)\n- BY: Ali Yusuf");
-loadScript("https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js", function(){
-        PrintSchedule ();
-    });
+
 /***************************************************************************************************************************
 //
 //
@@ -179,7 +177,13 @@ function PrintSchedule (){
                         var tTime = subjects[subjectsKey[i]][4][k].to.match(/([\d]*):([\d]*)/);
                         var tHour = parseInt(tTime[1]);
                         var tMin = parseInt(tTime[2]);
-
+                        
+                        if (newTable.getElementById(days[d]+'-'+(fHour+(fMin/60))) == null )
+			{
+				//console.log(days[d]+'-'+(fHour+(fMin/60)));
+				continue;
+			}
+                        
                         newTable.getElementById(days[d]+'-'+(fHour+(fMin/60))).innerHTML += subjectsKey[i]+'<br>'+subjects[subjectsKey[i]][4][k].room+'<br>Sec.'+subjects[subjectsKey[i]][1];
                         
                         var span = (tHour*60+tMin) - (fHour*60+fMin);
