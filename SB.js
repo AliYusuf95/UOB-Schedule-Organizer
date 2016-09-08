@@ -53,15 +53,17 @@ loadScript('https://code.jquery.com/jquery-1.12.0.min.js', function(){
         'https://aliyusuf95.github.io/UOB-Schedule-Organizer/sweetalert.css'
     ];
     var scriptfiles = [
+        'https://aliyusuf95.github.io/UOB-Schedule-Organizer/sweetalert.min.js'
     ];
 
-    /*$.getMultiScripts(scriptfiles, '').done(function() {
-        // all scripts loaded
-    });*/
-    $.getManyCss(cssfiles, function(){
-        console.log('all css loaded');
-        ScheduleBuilder();
+    $.getMultiScripts(scriptfiles, '').done(function() {
+        console.log('all js loaded');
+        $.getManyCss(cssfiles, function(){
+            console.log('all css loaded');
+            ScheduleBuilder();
+        });
     });
+    
 });
 
 function ScheduleBuilder (){
