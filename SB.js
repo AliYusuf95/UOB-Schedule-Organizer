@@ -31,7 +31,7 @@ loadScript('https://code.jquery.com/jquery-1.12.0.min.js', function(){
 function ScheduleBuilder (){
   swal({
     title: "HTML <small>Title</small>!",
-    text: "A custom <span style="color:#F8BB86">html<span> message.",
+    text: "A custom <span style='color:#F8BB86'>html<span> message.",
     html: true
   });
 }
