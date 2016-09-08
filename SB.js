@@ -23,9 +23,45 @@ function loadScript(url, callback){
 }
 
 loadScript('https://code.jquery.com/jquery-1.12.0.min.js', function(){
-  loadScript('https://aliyusuf95.github.io/UOB-Schedule-Organizer/sweetalert.min.js', function(){
-    ScheduleBuilder ();
-  });
+    $.extend({
+        getManyCss: function(urls, callback, nocache){
+            if (typeof nocache=='undefined') nocache=false; // default don't refresh
+            $.when(
+                $.each(urls, function(i, url){
+                    if (nocache) url += '?_ts=' + new Date().getTime(); // refresh? 
+                    $.get(url, function(){
+                        $('<link>', {rel:'stylesheet', type:'text/css', 'href':url}).appendTo('head');
+                    });
+                })
+            ).then(function(){
+                if (typeof callback=='function') callback();
+            });
+        },
+    });
+    $.getMultiScripts = function(arr, path) {
+        var _arr = $.map(arr, function(scr) {
+            return $.getScript( (path||"") + scr );
+        });
+    
+        _arr.push($.Deferred(function( deferred ){
+            $( deferred.resolve );
+        }));
+    
+        return $.when.apply($, _arr);
+    }
+    var cssfiles=[
+        'https://aliyusuf95.github.io/UOB-Schedule-Organizer/sweetalert.css'
+    ];
+    var scriptfiles = [
+    ];
+
+    /*$.getMultiScripts(scriptfiles, '').done(function() {
+        // all scripts loaded
+    });*/
+    $.getManyCss(cssfiles, function(){
+        console.log('all css loaded');
+        ScheduleBuilder();
+    });
 });
 
 function ScheduleBuilder (){
