@@ -22,7 +22,7 @@ function loadScript(url, callback){
     document.getElementsByTagName("head")[0].appendChild(script);
 }
 
-loadScript('https://code.jquery.com/jquery-1.12.0.min.js', function(){
+loadScript('https://code.jquery.com/jquery-2.2.4.min.js', function(){
     $.extend({
         getManyCss: function(urls, callback, nocache){
             if (typeof nocache=='undefined') nocache=false; // default don't refresh
