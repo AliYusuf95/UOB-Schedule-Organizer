@@ -1,25 +1,3 @@
-//==========================================================
-//Replace srizon with your dribbble username
-//==========================================================
-$.jribbble.getShotsByPlayerId('srizon', function (playerShots) {
-    var html = [];
-
-
-//========================
-//PORTFOLIO SETUP
-//========================
-    $.each(playerShots.shots, function (i, shot) {
-        html.push('<li><a href="' + shot.url + '">');
-        html.push('<img src="' + shot.image_teaser_url + '" ');
-        html.push('alt="' + shot.title + '"></a>');
-        html.push('<h3><a href="' + shot.url + '">' + shot.title + '</h3>');
-        html.push('<div class="likecount"><span class="icon-heart"></span> ' + shot.likes_count + '</div>');
-        html.push('<div class="commentcount"><span class="icon-bubbles"></span> ' + shot.comments_count + '</a></li></div>');
-    });
-
-    $('#shotsByPlayerId').html(html.join(''));
-}, {page: 1, per_page: 9});
-
 //========================
 //PRELOADER
 //========================
