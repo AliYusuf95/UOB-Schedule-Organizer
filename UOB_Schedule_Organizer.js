@@ -82,7 +82,7 @@ else
 */
 
 function PrintSchedule (){
-    var title = '<a href="https://goo.gl/1Xo9c3" target="_blank" >USO</a> - v1.1';
+    var title = '<a href="https://goo.gl/Ao20Q4" target="_blank" >USO</a> - v1.1';
     var days = ['U','M','T','W','H'];
     var hours = [];
     for (i=8;i<20;i+=0.25)
